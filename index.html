@@ -9,14 +9,24 @@
 
     <!-- embed external css -->
     <link rel="stylesheet" href="css/style.css" />
+	
+	<!-- #7 embed fontawesome -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- #6 embed #jquery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
+	
+	<!-- #7 #external #Ink (channels as objects) -->
+	<script src="js/channels.js"></script>
+	
     <!-- #6 #external #action-->
     <script src="js/script.js"></script>
+	
+	
+	
 </head>
-<body>
+<!-- #8 onload event that created all channels using objects -->
+<body onload="listChannels()">
 
 <!-- channel area -->
 <div id="channels">
@@ -28,55 +38,64 @@
     </h1>
 
     <!-- CHANNELS -->
-    <ul>
+    <ul id="channels-list">
         <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel('#Yummy')">
+        <!-- #7 switch channel with corresponding global variable as an argument -->
+		<li class="static" onclick="switchChannel(yummy)">
             #Yummy
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred">
+                <i class="fa fa-star-o"></i>
                 <!-- #5 #channels #icons now with chevron -->
-                <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select">
+                <i class="fa fa-chevron-right"></i>
             </span>
         </li>
         <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li class="selected" onclick="switchChannel('#SevenContinents')">
+		<!-- #7 switch channel with corresponding global variable as an argument -->
+        <li class="selected static" onclick="switchChannel(sevenContinents)">
             #SevenContinents
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred">
+				<!-- #7 all <img> icons replaced with Font Awesome icons-->
+                <i class="fa fa-star"></i>
                 <!-- #5 #channels #icons now with chevron -->
-                <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select">
+                <i class="fa fa-chevron-right"></i>
             </span>
         </li>
         <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel('#KillerApp')">
+		<!-- #7 switch channel with corresponding global variable as an argument -->
+        <li class="static" onclick="switchChannel(killerApp)">
             #KillerApp
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred">
+				<!-- #7 all <img> icons replaced with Font Awesome icons-->
+                <i class="fa fa-star-o"></i>
                 <!-- #5 #channels #icons now with chevron -->
-                <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select">
+                <i class="fa fa-chevron-right"></i>
             </span>
         </li>
         <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel('#FirstPersonOnMars')">
+		<!-- #7 switch channel with corresponding global variable as an argument -->
+        <li class="static" onclick="switchChannel(firstPersonOnMars)">
             #FirstPersonOnMars
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred">
+				<!-- #7 all <img> icons replaced with Font Awesome icons-->
+                <i class="fa fa-star"></i>
                 <!-- #5 #channels #icons now with chevron -->
-                <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select">
+                <i class="fa fa-chevron-right"></i>
             </span>
         </li>
         <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel('#Octoberfest')">
+		<!-- #7 switch channel with corresponding global variable as an argument -->
+        <li class="static" onclick="switchChannel(octoberfest)">
             #Octoberfest
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred">
+				<!-- #7 all <img> icons replaced with Font Awesome icons-->
+                <i class="fa fa-star-o"></i>
                 <!-- #5 #channels #icons now with chevron -->
-                <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select">
+                <i class="fa fa-chevron-right"></i>
             </span>
         </li>
 
@@ -107,7 +126,8 @@
         <!-- #6 #channels #location also needs an id -->
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #6 #liking channels requires a #filled star / with its #click listener -->
-        <img id="channel-star" src="http://ip.lfe.mw.tum.de/sections/star.png" alt="Favourite" onclick="star()">
+		<!-- #7 fill/unfill star icon with click listener -->
+        <i id="icon" class="fa fa-star" onclick="fillUnfill()"></i> 
     </h1>
 
     <!-- #5 #messages are now wrapped in a div to #scroll properly */ -->
@@ -164,6 +184,11 @@
     <div id="chat-bar"> <!-- #6 #smile #show the menu on click -->
         <button id="emojis-button" onclick="toggleEmojis()"><img src="http://ip.lfe.mw.tum.de/sections/smile-o.png" alt="Smiley"></button>
         <div id="emojis">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+		<!-- #8 text input + button to send messages -->
+		<input id="read" type="text" placeholder="Message..." maxlength=140>  <!-- #8 #prefill with placeholder #limit -->
+		<button id="send" onclick="sendMessage()">
+		<i class="fa fa-arrow-right fa-2x" ></i>
+		</button>
     </div>
 </div>
 

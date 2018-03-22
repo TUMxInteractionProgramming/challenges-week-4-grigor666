@@ -27,6 +27,11 @@ button, strong {
     text-transform: uppercase;
 }
 
+/* #7 font size of icons*/
+i {
+	font-size: 24px;	
+}
+
 /* LAYOUT #5 #split */
 
 #channels {
@@ -91,11 +96,15 @@ h1 a {
     color: white;
 }
 
-h1 #channel-star {
+h1 i {
     /* #6 #liking #filled  */
+	/* #7 icon of star right aligned */
     position:absolute;
     right: 16px;
+	
 }
+
+
 
 /* CHANNELS LIST */
 
@@ -211,6 +220,15 @@ li.selected {
     display: none;
 }
 
+/* #8 alignment of button with font-awesome arrow pointing to the right */
+#send {
+	position: absolute;
+	right: 0px;
+	width: auto;
+	flex-grow: 0;
+}
+
+
 /* MESSAGES */
 
 .message {
@@ -269,4 +287,14 @@ li.selected {
 
 .message.own {
     margin-left: 17.5%;
+}
+
+
+/* #8 challenge apply #style to input element */
+
+div input {
+	border-style: none;
+	font-size: medium;
+	flex: auto;
+	
 }
