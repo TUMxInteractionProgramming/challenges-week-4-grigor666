@@ -29,7 +29,7 @@ function switchChannel(channelObject) {
 	// #7 change the #channel #location using object property (createdBy)
 	var linkAdress = "http://w3w.co/" + channelObject.createdBy;
 	var starOrNot = (channelObject.starred ? "fa-star" : "fa-star-o")
-    document.getElementById('channel-location').innerHTML = 'by <a href="'+linkAdress+ '"target=_blank><strong>"'+channelObject.createdBy+ '</strong></a>';
+    document.getElementById('channel-location').innerHTML = 'by <a href="'+linkAdress+ '"target=_blank><strong>'+channelObject.createdBy+ '</strong></a>';
 	//upgrading.never.helps
 	
 	//#7 storing current channel object in variable currentChannel
@@ -108,7 +108,7 @@ function sendMessage() {
 	var realInput = $("#read").val();
 	var message = new Message(realInput);
 	console.log(message);
-	var newMessage = createMessageElement(message);
+	var newMessage = createMessageElement(message);	
 	$("#messages").append(newMessage);
 	scrollingValue += 300;                           // #8 challenge #scroll
 	$("#messages").scrollTop(scrollingValue);
@@ -126,7 +126,11 @@ function sendMessage() {
 function createMessageElement(messageObject) {
 	var diffMs = messageObject.expiresOn - messageObject.createdOn;
 	var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); 
-	return '<div class="message"> <h3><a href=http://w3w.co/"'+messageObject.createdBy+'" target="_blank"><strong>'+messageObject.createdBy+'</strong></a>'+messageObject.createdOn.toLocaleString()+'<em>'+diffMins+ ' min. left</em></h3><p>'+messageObject.text+'</p><button>+5 min.</button></div>'
+	var owner = ""
+	if (messageObject.own == true) {    // #8 challenge add own class dynamically to messages
+		owner = " own";
+	}
+	return '<div class="message'+owner+'"> <h3><a href=http://w3w.co/"'+messageObject.createdBy+'" target="_blank"><strong>'+messageObject.createdBy+'</strong></a>'+messageObject.createdOn.toLocaleString()+'<em>'+diffMins+ ' min. left</em></h3><p>'+messageObject.text+'</p><button>+5 min.</button></div>'
 }
 	
 	

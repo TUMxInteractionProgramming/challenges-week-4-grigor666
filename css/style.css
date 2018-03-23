@@ -94,6 +94,7 @@ h1#left-app-bar img {
 h1 a {
     /* #6 #channels fix the #link color in app bar*/
     color: white;
+	text-decoration: none;
 }
 
 h1 i {
