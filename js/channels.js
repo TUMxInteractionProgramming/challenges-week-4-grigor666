@@ -64,23 +64,24 @@ function listChannels() {
 	$("#channels-list").append(firstChan);
 	octoChan = createChannelElement(octoberfest);
 	$("#channels-list").append(octoChan);
-	$(".static").remove();
+	//$(".static").remove();
 }
 function createChannelElement(channelObject) {
-	if (channelObject.name == "#Yummy") {
-		var new_div = $("<li>").attr("onclick","switchChannel(yummy)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass("fa fa-star-o").append($("<i>").addClass("fa fa-chevron-right"))));
+	var starOrNot = channelObject.starred ? "fa fa-star" : "fa fa-star-o"
+	if (channelObject.name == "#Yummy") {				
+		var new_div = $("<li>").attr("onclick","switchChannel(yummy)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass(starOrNot).append($("<i>").addClass("fa fa-chevron-right"))));
 	}
 	else if (channelObject.name == "#SevenContinents") { 
-		var new_div = $("<li>").attr("onclick","switchChannel(sevenContinents)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass("fa fa-star").append($("<i>").addClass("fa fa-chevron-right"))));
+		var new_div = $("<li>").attr("onclick","switchChannel(sevenContinents)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass(starOrNot).append($("<i>").addClass("fa fa-chevron-right"))));
 	}
 	else if (channelObject.name == "#KillerApp") {
-		var new_div = $("<li>").attr("onclick","switchChannel(killerApp)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass("fa fa-star-o").append($("<i>").addClass("fa fa-chevron-right"))));
+		var new_div = $("<li>").attr("onclick","switchChannel(killerApp)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass(starOrNot).append($("<i>").addClass("fa fa-chevron-right"))));
 	}
 	else if (channelObject.name == "#FirstPersonOnMars") {
-		var new_div = $("<li>").attr("onclick","switchChannel(firstPersonOnMars)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass("fa fa-star").append($("<i>").addClass("fa fa-chevron-right"))));
+		var new_div = $("<li>").attr("onclick","switchChannel(firstPersonOnMars)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass(starOrNot).append($("<i>").addClass("fa fa-chevron-right"))));
 	}
 	else {
-		var new_div = $("<li>").attr("onclick","switchChannel(octoberfest)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass("fa fa-star-o").append($("<i>").addClass("fa fa-chevron-right"))));
+		var new_div = $("<li>").attr("onclick","switchChannel(octoberfest)").html(channelObject.name).append($("<span>").addClass("channel-meta").append($("<i>").addClass(starOrNot).append($("<i>").addClass("fa fa-chevron-right"))));
 	}
 	return new_div;	
 }

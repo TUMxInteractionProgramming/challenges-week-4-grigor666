@@ -31,7 +31,7 @@ function switchChannel(channelObject) {
 	// wrong here
 	var linkAdress = "http://w3w.co/" + channelObject.createdBy;
 	var starOrNot = (channelObject.starred ? "fa-star" : "fa-star-o")
-    document.getElementById('channel-location').innerHTML = 'by "<a href="'+ linkAdress + ' target=' +'"_blank"><strong>' +channelObject.createdBy+ '</strong></a>';
+    document.getElementById('channel-location').innerHTML = 'by <a href="'+linkAdress+ '"target=_blank><strong>"'+channelObject.createdBy+ '</strong></a>';
 	//upgrading.never.helps
 	
 	//#7 storing current channel object in variable currentChannel
