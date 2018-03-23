@@ -295,6 +295,6 @@ li.selected {
 div input {
 	border-style: none;
 	font-size: medium;
-	flex: auto;
+	flex: 0.91;
 	
 }
