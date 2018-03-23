@@ -27,8 +27,6 @@ function switchChannel(channelObject) {
 
     // #6 change the #channel #location
 	// #7 change the #channel #location using object property (createdBy)
-	
-	// wrong here
 	var linkAdress = "http://w3w.co/" + channelObject.createdBy;
 	var starOrNot = (channelObject.starred ? "fa-star" : "fa-star-o")
     document.getElementById('channel-location').innerHTML = 'by <a href="'+linkAdress+ '"target=_blank><strong>"'+channelObject.createdBy+ '</strong></a>';
@@ -44,6 +42,7 @@ function switchChannel(channelObject) {
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
     $('#channels li').removeClass('selected');
     $('#channels li:contains(' + channelObject.name + ')').addClass('selected');
+	
 }
 
 /* #6 #liking a channel on #click 
