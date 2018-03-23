@@ -64,7 +64,7 @@ function listChannels() {
 	$("#channels-list").append(firstChan);
 	octoChan = createChannelElement(octoberfest);
 	$("#channels-list").append(octoChan);
-	//$(".static").remove();
+	$(".static").remove();
 }
 function createChannelElement(channelObject) {
 	var starOrNot = channelObject.starred ? "fa fa-star" : "fa fa-star-o"
